@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Text-to-Speech</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=avX4j1Nc"></script>
+</head>
+<body>
+    <script>
+        // URL 쿼리 파라미터에서 텍스트 가져오기
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const text = decodeURIComponent(getQueryParameter('text'));
+        if (text) {
+            responsiveVoice.speak(text, "Korean Female");
+        } else {
+            document.body.innerHTML = "안녕하세요.";
+        }
+    </script>
+</body>
+</html>
